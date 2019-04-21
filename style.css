@@ -1,0 +1,40 @@
+html{
+	font-size: 2em;
+	font-family: sans-serif;
+}
+body{
+	width:1000px;
+}
+h1{
+	border-bottom: 5px solid green;
+}
+thead{
+	color:red;
+	text-align:left;
+	border-bottom: 3px solid black;
+}
+th{
+	border-bottom: 3px solid black;
+}
+td{
+
+}
+table{
+	width:1000px;
+}
+
+
+
+
+
+
+.even{
+background-color:green;
+}
+.forSale{
+	color:red;
+	background-image: url("checker.png");
+	background-position: right;
+	background-repeat: no-repeat; 
+	background-size: cover;
+}
