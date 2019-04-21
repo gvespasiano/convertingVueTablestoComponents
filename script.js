@@ -1,19 +1,6 @@
 
-var myVue = new Vue({
-      el: "#collect",
-      data: {
-		   //empty for additional items
-		  
-		  newName:"",
-		  newColor:"",
-		  newSpeed:"",
-		  newStyle:"",
-		  newBody:"",
-		  newSale:false,
-		  newID:"",
-		 
-		  //Collection data array
-		  collectArray: [
+//Initial Data
+const collectArray = [
 		  {
 		  	name: "Lamborghini",
 		  	color: "Green",
@@ -49,19 +36,36 @@ var myVue = new Vue({
 		  	style: "Coup",
 		  	forsale: true,
 			  id: 5}
-		  ]
-      },
-	  methods: {
-		  //method function for delete car button
-		  deleteCar: function (carObject){
-			  this.collectArray = this.collectArray.filter(function (car){
-					  if (car.id !== carObject.id){
-						  return true;
-					  } else {
-						  return false;
-					  }
-					  })
-	 			 	},
+		  ];
+//Component
+Vue.component ( 'car-item',{
+		  props: [
+		  	'name','color','speed','style','forsale'
+		  ],	  
+		  template:`
+		  	<tr>
+			   <td>{{name}}</td>
+			   <td>{{color}}</td>
+			   <td>{{speed}}</td>
+			   <td>{{style}}</td>
+			   <td>{{forsale}}</td>
+		  	 </tr>
+		  `
+});
+
+//Vue
+var myVue = new Vue({
+	        el: "#collect",
+	        data: {
+	  		   //empty for additional items
+	  		  	newName:"",
+	  		  	newColor:"",
+	  		  	newSpeed:"",
+	  		  	newStyle:"",
+	  		  	newBody:"",
+	  		  	newSale:false,
+			  	newID:""},
+	  		  methods: {
 					addCar: function (){
 						if (this.checkFields()){
 						let newCar = {
