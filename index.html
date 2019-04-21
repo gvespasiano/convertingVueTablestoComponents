@@ -15,15 +15,19 @@
 			<th>Top Speed</th>
 			<th>Body Style</th>
 			<th>Buy Now!</th>
-			</thead>
- 		   <tr v-for="(cars, index) in collectArray" v-bind:class="{even: (index) % 2 !== 0,forSale: cars.forsale === true}">
-			   <td>{{cars.name}}</td>
-			   <td>{{cars.color}}</td>
-			   <td>{{cars.speed}}</td>
-			   <td>{{cars.style}}</td>
-			   <td>{{cars.forsale}}</td>
-		   </tr>
-		</table>
+		</thead>
+	<tbody>
+ 	  <tr is="car-item"
+		   v-for="(cars, index) in collectArray" 
+		   :class="{even: (index) % 2 !== 0,forSale: cars.forsale === true}"
+		   :name="cars.name"
+		   :color="cars.color"
+		   :speed="cars.speed"
+		   :style="cars.style"
+		   :forsale="cars.forsale">
+	   </tr>
+	</tbody>
+	</table>
 		<div id="form">
 			<h2>Add your car!</h2>
 			<form v-on:submit.prevent="addCar">
